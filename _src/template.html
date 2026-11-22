@@ -61,6 +61,7 @@
     <nav class="burger-menu burger-menu--right" id="burgerMenu" aria-label="{{menu_label}}" hidden>
       <a class="burger-link" href="#top" data-menu-close>{{menu_home}}</a>
       <a class="burger-link" href="#services" data-menu-close>{{menu_services}}</a>
+      <a class="burger-link" href="#gallery" data-menu-close>{{gallery_heading}}</a>
       <a class="burger-link" href="#contact" data-menu-close>{{menu_contact}}</a>
       <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
         {{menu_form}}
@@ -160,6 +161,16 @@
              ›
            </button>
          </div>
+    </section>
+
+    <!-- Instagram gallery: latest posts from @va_beauty_studio__ (feed via Behold) -->
+    <section class="insta" id="gallery" data-feed="{{instagram_feed}}" data-alt="{{gallery_alt}}">
+      <h2 class="insta-title">{{gallery_heading}}</h2>
+      <div class="insta-grid" id="instaGrid" aria-live="polite"></div>
+      <a class="insta-follow" href="https://www.instagram.com/va_beauty_studio__/" target="_blank" rel="noopener">
+        <img src="/img/instagram.png" width="28" height="28" alt="" aria-hidden="true" loading="lazy">
+        <span>{{gallery_follow}} <b>@va_beauty_studio__</b></span>
+      </a>
     </section>
 
     <!-- Quality banner -->
@@ -339,5 +350,6 @@
   <script src="/js/hero.js"></script>
   <script src="/js/services.js"></script>
   <script src="/js/reviews.js"></script>
+  <script src="/js/instagram.js"></script>
 </body>
 </html>

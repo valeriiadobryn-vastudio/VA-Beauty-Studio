@@ -46,12 +46,14 @@ function Fill($template, $vars, $name) {
   return $out
 }
 
+$config = Read-Text (Join-Path $src 'config.json') | ConvertFrom-Json
 $page   = Read-Text (Join-Path $src 'template.html')
 $thanks = Read-Text (Join-Path $src 'gracias-template.html')
 
 foreach ($lang in $langs) {
   $json = Read-Text (Join-Path $src "i18n\$lang.json") | ConvertFrom-Json
   $vars = @{}
+  foreach ($p in $config.PSObject.Properties) { $vars[$p.Name] = $p.Value }
   foreach ($p in $json.PSObject.Properties) { $vars[$p.Name] = $p.Value }
   $isMain = ($lang -eq 'es')
   $vars['path'] = if ($isMain) { '/' } else { "/$lang/" }

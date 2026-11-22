@@ -61,6 +61,7 @@
     <nav class="burger-menu burger-menu--right" id="burgerMenu" aria-label="Меню" hidden>
       <a class="burger-link" href="#top" data-menu-close>Главная</a>
       <a class="burger-link" href="#services" data-menu-close>Услуги</a>
+      <a class="burger-link" href="#gallery" data-menu-close>Наши работы</a>
       <a class="burger-link" href="#contact" data-menu-close>Контакты</a>
       <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
         Записаться онлайн
@@ -160,6 +161,16 @@
              ›
            </button>
          </div>
+    </section>
+
+    <!-- Instagram gallery: latest posts from @va_beauty_studio__ (feed via Behold) -->
+    <section class="insta" id="gallery" data-feed="" data-alt="Работа VA Beauty Studio в Instagram">
+      <h2 class="insta-title">Наши работы</h2>
+      <div class="insta-grid" id="instaGrid" aria-live="polite"></div>
+      <a class="insta-follow" href="https://www.instagram.com/va_beauty_studio__/" target="_blank" rel="noopener">
+        <img src="/img/instagram.png" width="28" height="28" alt="" aria-hidden="true" loading="lazy">
+        <span>Следите за нами в Instagram <b>@va_beauty_studio__</b></span>
+      </a>
     </section>
 
     <!-- Quality banner -->
@@ -339,5 +350,6 @@
   <script src="/js/hero.js"></script>
   <script src="/js/services.js"></script>
   <script src="/js/reviews.js"></script>
+  <script src="/js/instagram.js"></script>
 </body>
 </html>
