@@ -3,6 +3,6 @@
   "map_open": "In Google Maps öffnen",
   "map_note": "Die Karte wird erst nach dem Klick von Google geladen.",
   "legal_link": "Impressum und Datenschutz",
-  "f_consent": "Ich bin mit der Verarbeitung meiner Daten zur Terminvereinbarung gemäß der",
-  "f_consent_link": "Datenschutzerklärung einverstanden"
+  "f_consent": "Wir verwenden Ihre Daten nur zur Terminvereinbarung. Mehr dazu:",
+  "f_consent_link": "Datenschutzerklärung"
 }
