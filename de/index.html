@@ -96,6 +96,7 @@
       <a class="burger-link" href="#top" data-menu-close>Startseite</a>
       <a class="burger-link" href="#services" data-menu-close>Leistungen</a>
       <a class="burger-link" href="#gallery" data-menu-close>Unsere Arbeiten</a>
+      <a class="burger-link" href="#faq" data-menu-close>Fragen und Antworten</a>
       <a class="burger-link" href="#contact" data-menu-close>Kontakt</a>
       <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
         Online-Termin
@@ -131,6 +132,9 @@
       </div>
       </div>
     </section>
+
+    <!-- Languages spoken in the salon -->
+    <p class="speak">Wir sprechen: DE · EN · ES · UA · RU</p>
 
     <!-- Services slider -->
     <section class="services" id="services">
@@ -198,7 +202,7 @@
     </section>
 
     <!-- Instagram gallery: latest posts from @va_beauty_studio__ (feed via Behold) -->
-    <section class="insta" id="gallery" data-feed="" data-alt="Arbeit von VA Beauty Studio auf Instagram">
+    <section class="insta" id="gallery" data-feed="https://feeds.behold.so/sxyixJBMMyAhB0gOX2LE" data-alt="Arbeit von VA Beauty Studio auf Instagram">
       <h2 class="insta-title">Unsere Arbeiten</h2>
       <div class="insta-grid" id="instaGrid" aria-live="polite"></div>
       <a class="insta-follow" href="https://www.instagram.com/va_beauty_studio__/" target="_blank" rel="noopener">
@@ -235,6 +239,32 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <h2 class="faq-title">Fragen und Antworten</h2>
+      <details><summary>Wie kann ich einen Termin buchen?</summary><p>Über das Formular auf dieser Website, per WhatsApp oder telefonisch unter +34 684 301 949. Wir bestätigen jeden Termin persönlich.</p></details>
+      <details><summary>Wann haben Sie geöffnet?</summary><p>Montag bis Samstag von 10:00 bis 18:00 Uhr. Sonntag geschlossen.</p></details>
+      <details><summary>Wo befindet sich der Salon?</summary><p>Carrer Albó 2, local 3, Ponent, 07013 Palma (Mallorca).</p></details>
+      <details><summary>Welche Sprachen sprechen Sie?</summary><p>Deutsch, Englisch, Spanisch, Ukrainisch und Russisch.</p></details>
+      <details><summary>Was kosten die Behandlungen?</summary><p>Maniküre ab 30 €, Pediküre ab 50 €, Nagelverlängerung ab 5 € und Gesichtsbehandlungen ab 55 €. Der genaue Preis hängt von der Behandlung ab.</p></details>
+      <details><summary>Bieten Sie Podologie an?</summary><p>Ja. Wir bieten Podologie mit schmerzfreier Nagelpflege an. Schreiben Sie uns per WhatsApp, um einen Termin zu wählen.</p></details>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "de",
+      "mainEntity": [
+        { "@type": "Question", "name": "Wie kann ich einen Termin buchen?", "acceptedAnswer": { "@type": "Answer", "text": "Über das Formular auf dieser Website, per WhatsApp oder telefonisch unter +34 684 301 949. Wir bestätigen jeden Termin persönlich." } },
+        { "@type": "Question", "name": "Wann haben Sie geöffnet?", "acceptedAnswer": { "@type": "Answer", "text": "Montag bis Samstag von 10:00 bis 18:00 Uhr. Sonntag geschlossen." } },
+        { "@type": "Question", "name": "Wo befindet sich der Salon?", "acceptedAnswer": { "@type": "Answer", "text": "Carrer Albó 2, local 3, Ponent, 07013 Palma (Mallorca)." } },
+        { "@type": "Question", "name": "Welche Sprachen sprechen Sie?", "acceptedAnswer": { "@type": "Answer", "text": "Deutsch, Englisch, Spanisch, Ukrainisch und Russisch." } },
+        { "@type": "Question", "name": "Was kosten die Behandlungen?", "acceptedAnswer": { "@type": "Answer", "text": "Maniküre ab 30 €, Pediküre ab 50 €, Nagelverlängerung ab 5 € und Gesichtsbehandlungen ab 55 €. Der genaue Preis hängt von der Behandlung ab." } },
+        { "@type": "Question", "name": "Bieten Sie Podologie an?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wir bieten Podologie mit schmerzfreier Nagelpflege an. Schreiben Sie uns per WhatsApp, um einen Termin zu wählen." } }
+      ]
+    }
+    </script>
+
     <!-- Map -->
     <section class="map" id="map">
        <div class="map-embed">
@@ -261,7 +291,8 @@
             Carrer Albó 2, local 3, <br>
             Ponent, 07013 Palma, <br>
             Illes Balears<br>
-            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a><br>
+            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a> ·
+            <a class="contact-phone contact-wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
             Mo–Sa: 10:00 – 18:00<br>Sonntag: geschlossen
           </div>
         </div>
@@ -282,6 +313,9 @@
   <!-- Bottom sticky CTAs -->
   <div class="bottom-bar">
     <button class="bottom-btn bottom-btn--light" type="button" data-open-modal>TERMIN BUCHEN</button>
+    <a class="bottom-btn bottom-btn--wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">
+      <img src="/img/whatsapp.png" width="22" height="22" alt="" aria-hidden="true"><span>WhatsApp</span>
+    </a>
     <a class="bottom-btn bottom-btn--accent" href="tel:+34684301949">ANRUFEN</a>
   </div>
 
@@ -375,9 +409,17 @@
         </label>
          <button class="msubmit" type="submit">TERMINANFRAGE SENDEN</button>
         <p class="mstatus" id="formStatus" aria-live="polite"></p>
+        <p class="mor">oder</p>
+        <button class="mwhatsapp" type="button" id="waBook">
+          <img src="/img/whatsapp.png" width="24" height="24" alt="" aria-hidden="true">
+          <span>Per WhatsApp buchen</span>
+        </button>
       </form>
     </div>
   </div>
+
+  <!-- WhatsApp texts in this page's language (used by main.js) -->
+  <div hidden id="waTexts" data-hello="Hallo! Ich möchte einen Termin buchen." data-intro="Hallo! Ich möchte einen Termin buchen:" data-missing="Wählen Sie Leistung, Datum und Uhrzeit oder schreiben Sie uns einfach per WhatsApp."></div>
 
   <script src="/js/main.js"></script>
   <script src="/js/hero.js"></script>

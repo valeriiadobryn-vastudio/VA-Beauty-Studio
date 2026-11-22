@@ -96,6 +96,7 @@
       <a class="burger-link" href="#top" data-menu-close>{{menu_home}}</a>
       <a class="burger-link" href="#services" data-menu-close>{{menu_services}}</a>
       <a class="burger-link" href="#gallery" data-menu-close>{{gallery_heading}}</a>
+      <a class="burger-link" href="#faq" data-menu-close>{{faq_title}}</a>
       <a class="burger-link" href="#contact" data-menu-close>{{menu_contact}}</a>
       <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
         {{menu_form}}
@@ -131,6 +132,9 @@
       </div>
       </div>
     </section>
+
+    <!-- Languages spoken in the salon -->
+    <p class="speak">{{speak_langs}}</p>
 
     <!-- Services slider -->
     <section class="services" id="services">
@@ -235,6 +239,32 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <h2 class="faq-title">{{faq_title}}</h2>
+      <details><summary>{{faq_q1}}</summary><p>{{faq_a1}}</p></details>
+      <details><summary>{{faq_q2}}</summary><p>{{faq_a2}}</p></details>
+      <details><summary>{{faq_q3}}</summary><p>{{faq_a3}}</p></details>
+      <details><summary>{{faq_q4}}</summary><p>{{faq_a4}}</p></details>
+      <details><summary>{{faq_q5}}</summary><p>{{faq_a5}}</p></details>
+      <details><summary>{{faq_q6}}</summary><p>{{faq_a6}}</p></details>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "{{lang}}",
+      "mainEntity": [
+        { "@type": "Question", "name": "{{faq_q1}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a1}}" } },
+        { "@type": "Question", "name": "{{faq_q2}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a2}}" } },
+        { "@type": "Question", "name": "{{faq_q3}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a3}}" } },
+        { "@type": "Question", "name": "{{faq_q4}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a4}}" } },
+        { "@type": "Question", "name": "{{faq_q5}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a5}}" } },
+        { "@type": "Question", "name": "{{faq_q6}}", "acceptedAnswer": { "@type": "Answer", "text": "{{faq_a6}}" } }
+      ]
+    }
+    </script>
+
     <!-- Map -->
     <section class="map" id="map">
        <div class="map-embed">
@@ -261,7 +291,8 @@
             Carrer Albó 2, local 3, <br>
             Ponent, 07013 Palma, <br>
             Illes Balears<br>
-            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a><br>
+            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a> ·
+            <a class="contact-phone contact-wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
             {{hours}}
           </div>
         </div>
@@ -282,6 +313,9 @@
   <!-- Bottom sticky CTAs -->
   <div class="bottom-bar">
     <button class="bottom-btn bottom-btn--light" type="button" data-open-modal>{{cta_book}}</button>
+    <a class="bottom-btn bottom-btn--wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">
+      <img src="/img/whatsapp.png" width="22" height="22" alt="" aria-hidden="true"><span>WhatsApp</span>
+    </a>
     <a class="bottom-btn bottom-btn--accent" href="tel:+34684301949">{{cta_call}}</a>
   </div>
 
@@ -375,9 +409,17 @@
         </label>
          <button class="msubmit" type="submit">{{f_submit}}</button>
         <p class="mstatus" id="formStatus" aria-live="polite"></p>
+        <p class="mor">{{f_or}}</p>
+        <button class="mwhatsapp" type="button" id="waBook">
+          <img src="/img/whatsapp.png" width="24" height="24" alt="" aria-hidden="true">
+          <span>{{f_whatsapp}}</span>
+        </button>
       </form>
     </div>
   </div>
+
+  <!-- WhatsApp texts in this page's language (used by main.js) -->
+  <div hidden id="waTexts" data-hello="{{wa_hello}}" data-intro="{{wa_book_intro}}" data-missing="{{wa_missing}}"></div>
 
   <script src="/js/main.js"></script>
   <script src="/js/hero.js"></script>

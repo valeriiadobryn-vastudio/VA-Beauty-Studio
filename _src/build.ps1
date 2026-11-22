@@ -51,10 +51,14 @@ $page   = Read-Text (Join-Path $src 'template.html')
 $thanks = Read-Text (Join-Path $src 'gracias-template.html')
 
 foreach ($lang in $langs) {
-  $json = Read-Text (Join-Path $src "i18n\$lang.json") | ConvertFrom-Json
   $vars = @{}
   foreach ($p in $config.PSObject.Properties) { $vars[$p.Name] = $p.Value }
-  foreach ($p in $json.PSObject.Properties) { $vars[$p.Name] = $p.Value }
+  # <lang>.json plus any <lang>-*.json (extra texts, e.g. <lang>-more.json)
+  $files = @(Join-Path $src "i18n\$lang.json") + @(Get-ChildItem (Join-Path $src 'i18n') -Filter "$lang-*.json" | ForEach-Object { $_.FullName })
+  foreach ($f in $files) {
+    $json = Read-Text $f | ConvertFrom-Json
+    foreach ($p in $json.PSObject.Properties) { $vars[$p.Name] = $p.Value }
+  }
   $isMain = ($lang -eq 'es')
   $vars['path'] = if ($isMain) { '/' } else { "/$lang/" }
   $vars['redirect_script'] = if ($isMain) { $redirect } else { '' }

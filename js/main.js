@@ -254,3 +254,36 @@
     burgerBtn?.addEventListener("click", () => { langBox.open = false; });
   }
 })();
+
+// ===== WhatsApp Business (+34 684 301 949) =====
+(() => {
+  const WA = "34684301949";
+  const t = document.getElementById("waTexts");
+  const hello = (t && t.dataset.hello) || "";
+  const waUrl = (text) => "https://wa.me/" + WA + (text ? "?text=" + encodeURIComponent(text) : "");
+
+  // Every WhatsApp link opens the chat with a greeting in the page's language
+  document.querySelectorAll("a[data-wa]").forEach((a) => { a.href = waUrl(hello); });
+
+  // "Book via WhatsApp" in the booking form: send the chosen details as a message
+  const btn = document.getElementById("waBook");
+  const form = document.getElementById("bookingForm");
+  if (!btn || !form) return;
+  btn.addEventListener("click", () => {
+    const sel = form.querySelector('select[name="service"]');
+    const service = sel && sel.value ? sel.selectedOptions[0].textContent.trim() : "";
+    const date = form.date && form.date.value
+      ? new Date(form.date.value + "T00:00:00").toLocaleDateString(document.documentElement.lang, { weekday: "long", day: "numeric", month: "long" })
+      : "";
+    const time = form.time && form.time.value ? form.time.value : "";
+    const name = form.name && form.name.value ? form.name.value.trim() : "";
+    let text = hello;
+    if (service || date || time) {
+      text = [(t && t.dataset.intro) || hello,
+              service && "• " + service,
+              (date || time) && "• " + [date, time].filter(Boolean).join(", "),
+              name && "• " + name].filter(Boolean).join("\n");
+    }
+    window.open(waUrl(text), "_blank", "noopener");
+  });
+})();

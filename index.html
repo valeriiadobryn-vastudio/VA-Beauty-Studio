@@ -108,6 +108,7 @@
       <a class="burger-link" href="#top" data-menu-close>Inicio</a>
       <a class="burger-link" href="#services" data-menu-close>Servicios</a>
       <a class="burger-link" href="#gallery" data-menu-close>Nuestros trabajos</a>
+      <a class="burger-link" href="#faq" data-menu-close>Preguntas frecuentes</a>
       <a class="burger-link" href="#contact" data-menu-close>Contacto</a>
       <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
         Pedir cita online
@@ -143,6 +144,9 @@
       </div>
       </div>
     </section>
+
+    <!-- Languages spoken in the salon -->
+    <p class="speak">Hablamos: ES · EN · DE · UA · RU</p>
 
     <!-- Services slider -->
     <section class="services" id="services">
@@ -210,7 +214,7 @@
     </section>
 
     <!-- Instagram gallery: latest posts from @va_beauty_studio__ (feed via Behold) -->
-    <section class="insta" id="gallery" data-feed="" data-alt="Trabajo de VA Beauty Studio en Instagram">
+    <section class="insta" id="gallery" data-feed="https://feeds.behold.so/sxyixJBMMyAhB0gOX2LE" data-alt="Trabajo de VA Beauty Studio en Instagram">
       <h2 class="insta-title">Nuestros trabajos</h2>
       <div class="insta-grid" id="instaGrid" aria-live="polite"></div>
       <a class="insta-follow" href="https://www.instagram.com/va_beauty_studio__/" target="_blank" rel="noopener">
@@ -247,6 +251,32 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <h2 class="faq-title">Preguntas frecuentes</h2>
+      <details><summary>¿Cómo puedo pedir cita?</summary><p>Con el formulario de esta web, por WhatsApp o por teléfono: +34 684 301 949. Confirmamos cada cita personalmente.</p></details>
+      <details><summary>¿Cuál es el horario?</summary><p>De lunes a sábado, de 10:00 a 18:00. Domingo cerrado.</p></details>
+      <details><summary>¿Dónde está el salón?</summary><p>Carrer Albó 2, local 3, Ponent, 07013 Palma (Mallorca).</p></details>
+      <details><summary>¿En qué idiomas atendéis?</summary><p>En español, inglés, alemán, ucraniano y ruso.</p></details>
+      <details><summary>¿Cuánto cuestan los servicios?</summary><p>Manicura desde 30 €, pedicura desde 50 €, extensión de uñas desde 5 € y tratamientos faciales desde 55 €. El precio exacto depende del tratamiento.</p></details>
+      <details><summary>¿Tenéis podología?</summary><p>Sí. Ofrecemos podología con cuidado de uñas sin dolor. Escríbenos por WhatsApp para elegir la hora.</p></details>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Cómo puedo pedir cita?", "acceptedAnswer": { "@type": "Answer", "text": "Con el formulario de esta web, por WhatsApp o por teléfono: +34 684 301 949. Confirmamos cada cita personalmente." } },
+        { "@type": "Question", "name": "¿Cuál es el horario?", "acceptedAnswer": { "@type": "Answer", "text": "De lunes a sábado, de 10:00 a 18:00. Domingo cerrado." } },
+        { "@type": "Question", "name": "¿Dónde está el salón?", "acceptedAnswer": { "@type": "Answer", "text": "Carrer Albó 2, local 3, Ponent, 07013 Palma (Mallorca)." } },
+        { "@type": "Question", "name": "¿En qué idiomas atendéis?", "acceptedAnswer": { "@type": "Answer", "text": "En español, inglés, alemán, ucraniano y ruso." } },
+        { "@type": "Question", "name": "¿Cuánto cuestan los servicios?", "acceptedAnswer": { "@type": "Answer", "text": "Manicura desde 30 €, pedicura desde 50 €, extensión de uñas desde 5 € y tratamientos faciales desde 55 €. El precio exacto depende del tratamiento." } },
+        { "@type": "Question", "name": "¿Tenéis podología?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ofrecemos podología con cuidado de uñas sin dolor. Escríbenos por WhatsApp para elegir la hora." } }
+      ]
+    }
+    </script>
+
     <!-- Map -->
     <section class="map" id="map">
        <div class="map-embed">
@@ -273,7 +303,8 @@
             Carrer Albó 2, local 3, <br>
             Ponent, 07013 Palma, <br>
             Illes Balears<br>
-            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a><br>
+            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a> ·
+            <a class="contact-phone contact-wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
             Lun–Sáb: 10:00 – 18:00<br>Domingo: cerrado
           </div>
         </div>
@@ -294,6 +325,9 @@
   <!-- Bottom sticky CTAs -->
   <div class="bottom-bar">
     <button class="bottom-btn bottom-btn--light" type="button" data-open-modal>PEDIR CITA</button>
+    <a class="bottom-btn bottom-btn--wa" href="https://wa.me/34684301949" data-wa target="_blank" rel="noopener">
+      <img src="/img/whatsapp.png" width="22" height="22" alt="" aria-hidden="true"><span>WhatsApp</span>
+    </a>
     <a class="bottom-btn bottom-btn--accent" href="tel:+34684301949">LLAMAR</a>
   </div>
 
@@ -387,9 +421,17 @@
         </label>
          <button class="msubmit" type="submit">ENVIAR SOLICITUD DE CITA</button>
         <p class="mstatus" id="formStatus" aria-live="polite"></p>
+        <p class="mor">o</p>
+        <button class="mwhatsapp" type="button" id="waBook">
+          <img src="/img/whatsapp.png" width="24" height="24" alt="" aria-hidden="true">
+          <span>Pedir cita por WhatsApp</span>
+        </button>
       </form>
     </div>
   </div>
+
+  <!-- WhatsApp texts in this page's language (used by main.js) -->
+  <div hidden id="waTexts" data-hello="¡Hola! Quiero pedir una cita." data-intro="¡Hola! Quiero pedir una cita:" data-missing="Elige el servicio, la fecha y la hora, o simplemente escríbenos por WhatsApp."></div>
 
   <script src="/js/main.js"></script>
   <script src="/js/hero.js"></script>
