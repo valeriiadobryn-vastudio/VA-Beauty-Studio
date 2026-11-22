@@ -69,6 +69,13 @@ foreach ($lang in $langs) {
   "built $($vars['path'])"
 }
 
+# Legal notice + privacy page (Spanish) from config.json owner details
+$legalVars = @{ 'legal_date' = (Get-Date -Format 'dd/MM/yyyy') }
+foreach ($p in $config.PSObject.Properties) { $legalVars[$p.Name] = $p.Value }
+Write-Text (Join-Path $root 'legal.html') (Fill (Read-Text (Join-Path $src 'legal-template.html')) $legalVars 'legal')
+"built /legal.html"
+if ($config.owner_nie -notmatch '^[XYZ]\d{7}[A-Z]$') { Write-Warning "owner_nie is not a confirmed NIE yet - do not publish legal.html" }
+
 # sitemap.xml with language alternates
 $alt = ($langs | ForEach-Object {
   $u = if ($_ -eq 'es') { 'https://vabeauty.studio/' } else { "https://vabeauty.studio/$_/" }

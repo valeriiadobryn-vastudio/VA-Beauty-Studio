@@ -287,3 +287,20 @@
     window.open(waUrl(text), "_blank", "noopener");
   });
 })();
+
+// ===== Google Maps: load only when the visitor asks for it =====
+(() => {
+  const box = document.getElementById("mapBox");
+  const btn = document.getElementById("mapShow");
+  if (!box || !btn) return;
+  btn.addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = box.dataset.src;
+    f.title = box.dataset.title || "Google Maps";
+    f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade";
+    f.allowFullscreen = true;
+    box.innerHTML = "";
+    box.appendChild(f);
+  });
+})();

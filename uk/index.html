@@ -267,17 +267,17 @@
 
     <!-- Map -->
     <section class="map" id="map">
-       <div class="map-embed">
-       <iframe
-      title="Карта: VA Beauty Studio"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.101862028357!2d2.6216076761161955!3d39.57985460614876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12979375f26118b7%3A0x1ad0d6589ff5f305!2sVA%20BEAUTY%20STUDIO!5e0!3m2!1suk!2ses!4v1769440217420!5m2!1suk!2ses"
-      width="100%"
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-       </iframe>
+       <!-- Google Maps loads only after a click: no Google cookies before the visitor chooses -->
+       <div class="map-embed map-click" id="mapBox"
+            data-title="Карта: VA Beauty Studio"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.101862028357!2d2.6216076761161955!3d39.57985460614876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12979375f26118b7%3A0x1ad0d6589ff5f305!2sVA%20BEAUTY%20STUDIO!5e0!3m2!1suk!2ses!4v1769440217420!5m2!1suk!2ses">
+         <div class="map-placeholder">
+           <img src="/img/pin.png" width="40" height="40" alt="" aria-hidden="true" loading="lazy">
+           <p class="map-address">Carrer Albó 2, local 3<br>07013 Palma</p>
+           <button type="button" class="map-btn" id="mapShow">Показати карту</button>
+           <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=VA%20BEAUTY%20STUDIO%20Carrer%20Alb%C3%B3%202%20Palma" target="_blank" rel="noopener">Відкрити в Google Maps</a>
+           <p class="map-note">Карта завантажується з Google лише після натискання.</p>
+         </div>
        </div>
     </section>
 
@@ -308,6 +308,11 @@
         </div>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <a href="/legal.html" rel="nofollow">Юридична інформація та конфіденційність</a>
+      <span>© VA Beauty Studio</span>
+    </footer>
   </main>
 
   <!-- Bottom sticky CTAs -->
@@ -406,6 +411,10 @@
         <label class="mfield">
           <span class="mfield__label">Ваше повідомлення</span>
           <textarea class="minput minput--ta" rows="4" name="message"></textarea>
+        </label>
+        <label class="mconsent">
+          <input type="checkbox" name="consent" value="sí" required>
+          <span>Я погоджуюся на обробку моїх даних для запису згідно з <a href="/legal.html#privacidad" target="_blank" rel="noopener">політикою конфіденційності</a></span>
         </label>
          <button class="msubmit" type="submit">НАДІСЛАТИ ЗАПИТ НА ЗАПИС</button>
         <p class="mstatus" id="formStatus" aria-live="polite"></p>
