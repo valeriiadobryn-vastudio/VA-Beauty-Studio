@@ -87,6 +87,26 @@
     if (form.dataset.sending === "1") return;
     form.dataset.sending = "1";
 
+    // Send the request to the salon's WhatsApp too: open a chat with the booking
+    // already written, so it arrives in WhatsApp from the client's own number.
+    // Opened here, during the click, so phones don't block it.
+    try {
+      const waT = document.getElementById("waTexts");
+      const sel = form.querySelector('select[name="service"]');
+      const svc = sel && sel.value ? sel.selectedOptions[0].textContent.trim() : "";
+      const day = form.date && form.date.value
+        ? new Date(form.date.value + "T00:00:00").toLocaleDateString(document.documentElement.lang, { weekday: "long", day: "numeric", month: "long" })
+        : "";
+      const lines = [
+        (waT && waT.dataset.intro) || "¡Hola! Quiero pedir una cita:",
+        svc && "• " + svc,
+        (day || (form.time && form.time.value)) && "• " + [day, form.time && form.time.value].filter(Boolean).join(", "),
+        form.name && form.name.value.trim() && "• " + form.name.value.trim(),
+        form.message && form.message.value.trim() && "• " + form.message.value.trim()
+      ].filter(Boolean);
+      window.open("https://wa.me/34684301949?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+    } catch (err) {}
+
     let sent = false;
 
     try {

@@ -60,7 +60,7 @@
   "close_label": "Close",
   "form_title": "BOOKING FORM",
   "msg_sending": "Sending…",
-  "msg_ok": "✅ Thank you! We've received your request and will confirm your appointment by phone or WhatsApp.",
+  "msg_ok": "✅ Thank you! Request sent. WhatsApp has opened: press Send so we can confirm faster.",
   "msg_error": "❌ Couldn't send. Please call us or message us on WhatsApp: +34 684 301 949",
   "msg_network": "❌ Connection error. Please call us or message us on WhatsApp: +34 684 301 949",
   "f_service": "Choose a treatment",

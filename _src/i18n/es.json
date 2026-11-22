@@ -60,7 +60,7 @@
   "close_label": "Cerrar",
   "form_title": "FORMULARIO DE CITA",
   "msg_sending": "Enviando…",
-  "msg_ok": "✅ ¡Gracias! Hemos recibido tu solicitud. Te confirmaremos la cita por teléfono o WhatsApp.",
+  "msg_ok": "✅ ¡Gracias! Solicitud enviada. Se ha abierto WhatsApp: pulsa «Enviar» para que te confirmemos antes.",
   "msg_error": "❌ Error al enviar. Llámanos o escríbenos por WhatsApp: +34 684 301 949",
   "msg_network": "❌ Error de conexión. Llámanos o escríbenos por WhatsApp: +34 684 301 949",
   "f_service": "Elige un tratamiento",

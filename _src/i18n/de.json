@@ -60,7 +60,7 @@
   "close_label": "Schließen",
   "form_title": "TERMINANFRAGE",
   "msg_sending": "Wird gesendet…",
-  "msg_ok": "✅ Vielen Dank! Wir haben Ihre Anfrage erhalten und bestätigen den Termin per Telefon oder WhatsApp.",
+  "msg_ok": "✅ Vielen Dank! Anfrage gesendet. WhatsApp wurde geöffnet: Tippen Sie auf „Senden“, damit wir schneller bestätigen.",
   "msg_error": "❌ Senden fehlgeschlagen. Bitte rufen Sie uns an oder schreiben Sie per WhatsApp: +34 684 301 949",
   "msg_network": "❌ Verbindungsfehler. Bitte rufen Sie uns an oder schreiben Sie per WhatsApp: +34 684 301 949",
   "f_service": "Behandlung wählen",
