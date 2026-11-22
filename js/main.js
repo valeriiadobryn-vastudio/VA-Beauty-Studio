@@ -93,6 +93,27 @@
       if (submitBtn) submitBtn.disabled = true;
       if (status) status.textContent = msg("sending", "Enviando…");
 
+      // One-tap reply link for the salon. The client's details go after "#",
+      // so they stay in the email and are never sent to the web server.
+      const replyField = form.querySelector('[name="RESPONDER_al_cliente"]');
+      if (replyField) {
+        let n = (form.phone && form.phone.value || "").replace(/[^\d+]/g, "");
+        if (n.startsWith("+")) n = n.slice(1);
+        else if (n.startsWith("00")) n = n.slice(2);
+        else if (/^[6789]\d{8}$/.test(n)) n = "34" + n; // Spanish number without +34
+        const sel = form.querySelector('select[name="service"]');
+        const p = new URLSearchParams({
+          n,
+          l: document.documentElement.lang || "es",
+          s: sel && sel.value ? sel.selectedOptions[0].textContent.trim() : "",
+          d: form.date ? form.date.value : "",
+          t: form.time ? form.time.value : "",
+          c: form.name ? form.name.value.trim() : "",
+          e: form.email ? form.email.value.trim() : ""
+        });
+        replyField.value = "https://vabeauty.studio/reply.html#" + p.toString();
+      }
+
       const fd = new FormData(form);
 
       // FormSubmit's AJAX endpoint answers with JSON instead of redirecting.

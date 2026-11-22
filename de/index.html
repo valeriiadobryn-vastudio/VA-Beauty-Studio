@@ -349,6 +349,8 @@
         <input type="hidden" name="_template" value="table">
         <!-- Fallback page when JavaScript is off -->
         <input type="hidden" name="_next" value="https://vabeauty.studio/de/gracias.html">
+        <!-- One-tap reply link for the salon (filled in by main.js when sending; shown first in the email) -->
+        <input type="hidden" name="RESPONDER_al_cliente" value="">
         <!-- Language of the client, so the salon knows how to reply -->
         <input type="hidden" name="idioma" value="Alemán">
         <!-- Anti-spam honeypot: hidden from people, bots fill it and get ignored -->
@@ -406,6 +408,11 @@
         <label class="mfield">
           <span class="mfield__label">Telefonnummer</span>
           <input class="minput" type="tel" name="phone" autocomplete="tel" required />
+        </label>
+
+        <label class="mfield">
+          <span class="mfield__label">E-Mail (optional)</span>
+          <input class="minput" type="email" name="email" autocomplete="email" />
         </label>
 
         <label class="mfield">

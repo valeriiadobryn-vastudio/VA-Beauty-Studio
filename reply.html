@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Відповісти клієнту — VA Beauty Studio</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .rp{ padding:16px 14px 40px; }
+    .rp h1{ font-size:22px; margin:4px 0 12px; }
+    .rp-card{ background:#faf6ee; border:1px solid var(--line); border-radius:14px; padding:12px 14px; margin-bottom:14px; line-height:1.55; }
+    .rp-card b{ display:inline-block; min-width:92px; color:#6b6457; font-weight:600; }
+    .rp-tabs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+    .rp-tabs button{ padding:12px 8px; border-radius:12px; border:2px solid var(--black); background:#fff; font-family:var(--font); font-weight:800; font-size:14px; cursor:pointer; }
+    .rp-tabs button[aria-pressed="true"]{ background:var(--black); color:var(--gold-2); }
+    .rp-new{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+    .rp-new label{ font-size:13px; font-weight:700; display:flex; flex-direction:column; gap:4px; }
+    .rp-new input, .rp-new select{ padding:10px; border:1px solid var(--line); border-radius:10px; font-size:16px; font-family:var(--font); }
+    .rp textarea{ width:100%; min-height:150px; padding:12px; border:1px solid var(--line); border-radius:12px; font-size:16px; line-height:1.45; font-family:var(--font); }
+    .rp-lang{ font-size:12px; color:var(--muted); margin:4px 0 12px; }
+    .rp-send{ display:flex; flex-direction:column; gap:10px; }
+    .rp-send a, .rp-send button{ display:flex; align-items:center; justify-content:center; gap:10px; padding:15px 12px; border-radius:12px; text-decoration:none; font-family:var(--font); font-weight:800; font-size:16px; border:0; cursor:pointer; }
+    .rp-wa{ background:#25D366; color:#0b2e17; }
+    .rp-sms{ background:var(--black); color:var(--gold-2); }
+    .rp-mail{ background:#fff; color:#111; border:2px solid var(--black) !important; }
+    .rp-call, .rp-copy{ background:#f2e3c2; color:#2b1b00; }
+    .rp-send .num{ font-size:12px; font-weight:600; opacity:.8; }
+    .is-off{ opacity:.4; pointer-events:none; }
+    .rp-err{ background:#fbe9e7; border:1px solid #f4c7c3; color:#b3261e; border-radius:12px; padding:12px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <div class="logo" aria-hidden="true">VA</div>
+      <div class="brand-text"><div class="brand-title">BEAUTY STUDIO</div></div>
+    </a>
+  </header>
+
+  <main class="page rp">
+    <h1>Відповісти клієнту</h1>
+    <div id="rpError" class="rp-err" hidden>У посиланні немає даних запису. Відкрийте посилання прямо з листа «Nueva cita».</div>
+
+    <div id="rpBody" hidden>
+      <div class="rp-card" id="rpCard"></div>
+
+      <div class="rp-tabs" role="group">
+        <button type="button" id="tabOk" aria-pressed="true">✅ Підтвердити</button>
+        <button type="button" id="tabNew" aria-pressed="false">🕑 Інший час</button>
+      </div>
+
+      <div class="rp-new" id="rpNew" hidden>
+        <label>Нова дата <input type="date" id="newDate"></label>
+        <label>Новий час
+          <select id="newTime">
+            <option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option>
+            <option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+          </select>
+        </label>
+      </div>
+
+      <textarea id="msg" aria-label="Повідомлення клієнту"></textarea>
+      <p class="rp-lang" id="rpLang"></p>
+
+      <div class="rp-send">
+        <a class="rp-wa" id="sendWa" target="_blank" rel="noopener">
+          <img src="/img/whatsapp.png" width="24" height="24" alt="" style="border-radius:6px">
+          <span>1. WhatsApp <span class="num" id="numWa"></span></span>
+        </a>
+        <a class="rp-sms" id="sendSms"><span>2. SMS</span></a>
+        <a class="rp-mail" id="sendMail"><span>3. Email</span></a>
+        <a class="rp-call" id="callBtn"><span>📞 Подзвонити</span></a>
+        <button type="button" class="rp-copy" id="copyBtn">📋 Скопіювати текст</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  (() => {
+    const q = new URLSearchParams(location.hash.slice(1));
+    const n = (q.get("n") || "").replace(/\D/g, "");
+    if (!n) { document.getElementById("rpError").hidden = false; return; }
+    document.getElementById("rpBody").hidden = false;
+
+    const L = ["uk","es","en","de","ru"].includes(q.get("l")) ? q.get("l") : "es";
+    const name = q.get("c") || "";
+    const email = q.get("e") || "";
+    const date = q.get("d") || "";
+    const time = q.get("t") || "";
+    let service = q.get("s") || "";
+    if (["uk","ru","es"].includes(L) && service) service = service[0].toLocaleLowerCase(L) + service.slice(1);
+
+    const fmtDate = (iso) => iso
+      ? new Date(iso + "T00:00:00").toLocaleDateString(L, { weekday: "long", day: "numeric", month: "long" })
+      : "";
+
+    const T = {
+      uk: { lang: "українська",
+        ok: "Вітаємо, {c}! Ваш запис на {s} {d} о {t} підтверджено. Чекаємо вас у VA Beauty Studio, Carrer Albó 2, local 3, Palma. До зустрічі!",
+        nw: "Вітаємо, {c}! Дякуємо за запит на {s}. На жаль, {d} о {t} немає вільного часу. Чи зручно вам {nd} о {nt}? Відповідайте на це повідомлення, щоб підтвердити.",
+        subj: "VA Beauty Studio — ваш запис" },
+      es: { lang: "español",
+        ok: "¡Hola, {c}! Tu cita de {s} el {d} a las {t} está confirmada. Te esperamos en VA Beauty Studio, Carrer Albó 2, local 3, Palma. ¡Hasta pronto!",
+        nw: "¡Hola, {c}! Gracias por tu solicitud de {s}. Lo sentimos, el {d} a las {t} no tenemos hueco. ¿Te va bien el {nd} a las {nt}? Responde a este mensaje para confirmar.",
+        subj: "VA Beauty Studio — tu cita" },
+      en: { lang: "English",
+        ok: "Hello {c}! Your appointment for {s} on {d} at {t} is confirmed. See you at VA Beauty Studio, Carrer Albó 2, local 3, Palma!",
+        nw: "Hello {c}! Thank you for your request for {s}. Unfortunately {d} at {t} is not available. Would {nd} at {nt} suit you? Reply to this message to confirm.",
+        subj: "VA Beauty Studio — your appointment" },
+      de: { lang: "Deutsch",
+        ok: "Hallo {c}! Ihr Termin für {s} am {d} um {t} Uhr ist bestätigt. Wir freuen uns auf Sie im VA Beauty Studio, Carrer Albó 2, local 3, Palma!",
+        nw: "Hallo {c}! Vielen Dank für Ihre Anfrage für {s}. Am {d} um {t} Uhr ist leider kein Termin frei. Passt Ihnen {nd} um {nt} Uhr? Antworten Sie einfach auf diese Nachricht.",
+        subj: "VA Beauty Studio — Ihr Termin" },
+      ru: { lang: "русский",
+        ok: "Здравствуйте, {c}! Ваша запись на {s} {d} в {t} подтверждена. Ждём вас в VA Beauty Studio, Carrer Albó 2, local 3, Palma. До встречи!",
+        nw: "Здравствуйте, {c}! Спасибо за запрос на {s}. К сожалению, {d} в {t} нет свободного времени. Удобно ли вам {nd} в {nt}? Ответьте на это сообщение, чтобы подтвердить.",
+        subj: "VA Beauty Studio — ваша запись" }
+    }[L];
+
+    // Booking summary
+    const pretty = "+" + n;
+    const rows = [["Клієнт", name], ["Телефон", pretty], ["Email", email], ["Послуга", q.get("s") || ""], ["Дата", fmtDate(date)], ["Час", time], ["Мова", T.lang]];
+    const card = document.getElementById("rpCard");
+    rows.filter(r => r[1]).forEach(([k, v]) => {
+      const line = document.createElement("div");
+      const b = document.createElement("b"); b.textContent = k;
+      line.append(b, " " + v);
+      card.appendChild(line);
+    });
+    document.getElementById("rpLang").textContent = "Повідомлення мовою клієнта (" + T.lang + "). Його можна змінити перед відправкою.";
+
+    // Message
+    const msg = document.getElementById("msg");
+    const newDate = document.getElementById("newDate");
+    const newTime = document.getElementById("newTime");
+    const rpNew = document.getElementById("rpNew");
+    const tabOk = document.getElementById("tabOk");
+    const tabNew = document.getElementById("tabNew");
+    newDate.value = date;
+    let mode = "ok";
+    const fill = (s) => s.replace("{c}", name).replace("{s}", service).replace("{d}", fmtDate(date)).replace("{t}", time)
+                        .replace("{nd}", fmtDate(newDate.value)).replace("{nt}", newTime.value);
+    const render = () => { msg.value = fill(mode === "ok" ? T.ok : T.nw); update(); };
+
+    // Send buttons: 1 WhatsApp, 2 SMS, 3 Email
+    const wa = document.getElementById("sendWa");
+    const sms = document.getElementById("sendSms");
+    const mail = document.getElementById("sendMail");
+    document.getElementById("numWa").textContent = pretty;
+    document.getElementById("callBtn").href = "tel:+" + n;
+    const update = () => {
+      const text = msg.value;
+      wa.href = "https://wa.me/" + n + "?text=" + encodeURIComponent(text);
+      sms.href = "sms:+" + n + "?&body=" + encodeURIComponent(text);
+      if (email) {
+        mail.href = "mailto:" + encodeURIComponent(email) + "?subject=" + encodeURIComponent(T.subj) + "&body=" + encodeURIComponent(text);
+      } else {
+        mail.classList.add("is-off");
+        mail.querySelector("span").textContent = "3. Email (клієнт не вказав)";
+      }
+    };
+
+    tabOk.addEventListener("click", () => { mode = "ok"; tabOk.setAttribute("aria-pressed", "true"); tabNew.setAttribute("aria-pressed", "false"); rpNew.hidden = true; render(); });
+    tabNew.addEventListener("click", () => { mode = "nw"; tabNew.setAttribute("aria-pressed", "true"); tabOk.setAttribute("aria-pressed", "false"); rpNew.hidden = false; render(); });
+    newDate.addEventListener("change", render);
+    newTime.addEventListener("change", render);
+    msg.addEventListener("input", update);
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(msg.value); document.getElementById("copyBtn").textContent = "✓ Скопійовано"; } catch (e) {}
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
