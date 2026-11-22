@@ -853,3 +853,84 @@ body{
 }
 .thanks-actions .t-dark{ background:#111; color:#d6a84f; }
 .thanks-actions .t-gold{ background:#d6a84f; color:#111; }
+
+/* ===== Multilingual additions ===== */
+
+/* Brand is now a link back to the home page */
+a.brand{ color:inherit; text-decoration:none; }
+
+/* Hero titles: first slide is the page's only H1, others look the same */
+.hero-title{
+  font-size:clamp(22px, 6.4vw, 30px);
+  font-weight:700;
+  line-height:1.22;
+  margin:.67em 0;
+}
+
+/* Headings kept for Google/screen readers but not shown */
+.visually-hidden{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
+}
+
+/* Service and contact titles became real headings: keep their old look */
+h3.svc-title{ margin:10px 0 0; line-height:1.3; }
+h2.contact-title{ margin:0 0 6px; line-height:1.3; }
+.contact-phone{ color:inherit; text-decoration:none; }
+
+/* Language switcher in the top bar */
+.lang{
+  position:relative;
+  margin-left:auto;
+}
+.lang > summary{
+  list-style:none;
+  cursor:pointer;
+  height:40px;
+  min-width:52px;
+  padding:0 12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.08);
+  color:var(--gold-2);
+  font-family:var(--font);
+  font-weight:800;
+  letter-spacing:.06em;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  user-select:none;
+}
+.lang > summary::-webkit-details-marker{ display:none; }
+.lang > summary::after{
+  content:"";
+  width:6px; height:6px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+}
+.lang[open] > summary::after{ transform:translateY(2px) rotate(225deg); }
+.lang-menu{
+  position:absolute;
+  right:0;
+  top:48px;
+  min-width:190px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.18);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  z-index:70;
+}
+.lang-menu a{
+  display:block;
+  padding:12px 14px;
+  color:#111;
+  text-decoration:none;
+  font-family:var(--font);
+  font-weight:700;
+  font-size:17px;
+}
+.lang-menu a + a{ border-top:1px solid rgba(0,0,0,.08); }
+.lang-menu a:hover{ background:rgba(214,162,74,.22); }
+.lang-menu a[aria-current="true"]{ background:rgba(214,162,74,.35); }

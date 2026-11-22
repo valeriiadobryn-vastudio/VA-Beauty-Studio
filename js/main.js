@@ -70,6 +70,9 @@
   const form = document.getElementById("bookingForm");
   const status = document.getElementById("formStatus");
 
+  // Messages come from the page (data-msg-* on the form), in the page's language
+  const msg = (key, fallback) => (form && form.dataset["msg" + key[0].toUpperCase() + key.slice(1)]) || fallback;
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -88,7 +91,7 @@
 
     try {
       if (submitBtn) submitBtn.disabled = true;
-      if (status) status.textContent = "Enviando…";
+      if (status) status.textContent = msg("sending", "Enviando…");
 
       const fd = new FormData(form);
 
@@ -107,7 +110,7 @@
       sent = res.ok && String(data.success) !== "false";
 
       if (sent) {
-        if (status) status.textContent = "✅ ¡Gracias! Hemos recibido tu solicitud. Te confirmaremos la cita por teléfono o WhatsApp.";
+        if (status) status.textContent = msg("ok", "✅ ¡Gracias! Hemos recibido tu solicitud.");
         form.reset();
 
         // обновим плейсхолдеры/оверлеи, если нужно
@@ -132,10 +135,10 @@
           form.dataset.sending = "";
         }, 2500);
       } else {
-        if (status) status.textContent = "❌ Error al enviar. Llámanos o escríbenos por WhatsApp: +34 684 301 949";
+        if (status) status.textContent = msg("error", "❌ Error al enviar. Llámanos: +34 684 301 949");
       }
     } catch (err) {
-      if (status) status.textContent = "❌ Error de conexión. Llámanos o escríbenos por WhatsApp: +34 684 301 949";
+      if (status) status.textContent = msg("network", "❌ Error de conexión. Llámanos: +34 684 301 949");
     } finally {
       if (!sent) {
         if (submitBtn) submitBtn.disabled = false;
@@ -226,5 +229,28 @@
     };
     updDate();
     dateInput?.addEventListener("change", updDate);
+  }
+
+  // ===== Language switcher =====
+  const langBox = document.querySelector(".lang");
+  if (langBox) {
+    const current = document.documentElement.lang;
+    langBox.querySelectorAll("a[data-lang]").forEach((a) => {
+      if (a.dataset.lang === current) a.setAttribute("aria-current", "true");
+      // Remember the visitor's choice so the main address opens in it next time
+      a.addEventListener("click", () => {
+        try { localStorage.setItem("va-lang", a.dataset.lang); } catch (err) {}
+      });
+    });
+    // Close when clicking elsewhere or pressing Escape
+    document.addEventListener("click", (e) => {
+      if (langBox.open && !langBox.contains(e.target)) langBox.open = false;
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") langBox.open = false;
+    });
+    // Opening the language list closes the burger menu and vice versa
+    langBox.addEventListener("toggle", () => { if (langBox.open) closeBurger(); });
+    burgerBtn?.addEventListener("click", () => { langBox.open = false; });
   }
 })();

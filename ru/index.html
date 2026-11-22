@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Маникюр, педикюр и уход за лицом в Пальме | VA Beauty Studio</title>
+  <meta name="description" content="Салон красоты VA Beauty Studio в Пальме (Майорка): маникюр, педикюр, наращивание ногтей, уход за лицом, лифтинг и пилинги. Онлайн-запись." />
+  <link rel="canonical" href="https://vabeauty.studio/ru/" />
+  <link rel="alternate" hreflang="uk" href="https://vabeauty.studio/uk/" />
+  <link rel="alternate" hreflang="es" href="https://vabeauty.studio/" />
+  <link rel="alternate" hreflang="en" href="https://vabeauty.studio/en/" />
+  <link rel="alternate" hreflang="de" href="https://vabeauty.studio/de/" />
+  <link rel="alternate" hreflang="ru" href="https://vabeauty.studio/ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://vabeauty.studio/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VA Beauty Studio" />
+  <meta property="og:title" content="Маникюр, педикюр и уход за лицом в Пальме | VA Beauty Studio" />
+  <meta property="og:description" content="Салон красоты VA Beauty Studio в Пальме (Майорка): маникюр, педикюр, наращивание ногтей, уход за лицом, лифтинг и пилинги. Онлайн-запись." />
+  <meta property="og:url" content="https://vabeauty.studio/ru/" />
+  <meta property="og:image" content="https://vabeauty.studio/img/manicura.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+  <!-- Left: logo + text -->
+  <a class="brand" href="/ru/" aria-label="VA Beauty Studio">
+    <div class="logo" aria-hidden="true">VA</div>
+    <div class="brand-text">
+      <div class="brand-title">BEAUTY STUDIO</div>
+    </div>
+  </a>
+
+  <!-- Language switcher -->
+  <details class="lang">
+    <summary aria-label="Язык">RU</summary>
+    <nav class="lang-menu" aria-label="Язык">
+      <a href="/uk/" hreflang="uk" lang="uk" data-lang="uk">UA · Українська</a>
+      <a href="/" hreflang="es" lang="es" data-lang="es">ES · Español</a>
+      <a href="/en/" hreflang="en" lang="en" data-lang="en">EN · English</a>
+      <a href="/de/" hreflang="de" lang="de" data-lang="de">DE · Deutsch</a>
+      <a href="/ru/" hreflang="ru" lang="ru" data-lang="ru">RU · Русский</a>
+    </nav>
+  </details>
+
+  <!-- Right: burger + dropdown -->
+  <div class="burger-wrap burger-wrap--right">
+    <button class="icon-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="burgerMenu">
+      <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+
+    <nav class="burger-menu burger-menu--right" id="burgerMenu" aria-label="Меню" hidden>
+      <a class="burger-link" href="#top" data-menu-close>Главная</a>
+      <a class="burger-link" href="#services" data-menu-close>Услуги</a>
+      <a class="burger-link" href="#contact" data-menu-close>Контакты</a>
+      <button class="burger-link burger-link--btn" type="button" data-open-modal data-menu-close>
+        Записаться онлайн
+      </button>
+    </nav>
+    </div>
+   </header>
+
+  <main class="page" id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide is-active">
+          <h1 class="hero-title">Маникюр и педикюр<br>с максимальной гигиеной<br>и премиальным качеством</h1>
+        </div>
+        <div class="hero-slide">
+          <p class="hero-title">Современный уход<br>за лицом для здоровой<br>и сияющей кожи</p>
+        </div>
+        <div class="hero-slide">
+          <p class="hero-title">Индивидуальный уход<br>натуральные ингредиенты<br>заметный результат</p>
+        </div>
+        <div class="hero-slide">
+          <p class="hero-title">Эстетические технологии<br>без боли и без<br>периода восстановления</p>
+        </div>
+      </div>
+      <div class="hero-dots" id="heroDots" aria-label="Слайды">
+        <button class="hero-dot is-active" type="button" aria-label="1"></button>
+        <button class="hero-dot" type="button" aria-label="2"></button>
+        <button class="hero-dot" type="button" aria-label="3"></button>
+        <button class="hero-dot" type="button" aria-label="4"></button>
+      </div>
+      </div>
+    </section>
+
+    <!-- Services slider -->
+    <section class="services" id="services">
+      <h2 class="visually-hidden">Услуги и цены</h2>
+         <div class="services-wrap">
+         <button class="svc-arrow svc-arrow--left" type="button" aria-label="Предыдущая услуга">
+             ‹
+         </button>
+             <div class="svc-viewport" id="svcViewport">
+             <div class="svc-track" id="svcTrack">
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/manicura.jpg" width="600" height="600" decoding="async" alt="Маникюр">
+                 <h3 class="svc-title">Маникюр</h3>
+                 <div class="svc-price">от 30 €</div>
+                 <ul class="svc-list"><li>Эстетический маникюр</li><li>Маникюр с покрытием лаком</li><li>Маникюр с покрытием гель-лаком</li><li>Маникюр с гелем</li><li>Маникюр + гель + наращивание</li><li>Французский дизайн</li><li>SPA (парафин)</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/pedicura.jpg" width="600" height="600" decoding="async" alt="Педикюр">
+                 <h3 class="svc-title">Педикюр</h3>
+                 <div class="svc-price">от 50 €</div>
+                 <ul class="svc-list"><li>Полный эстетический педикюр</li><li>Педикюр с покрытием лаком</li><li>Полный педикюр с гель-лаком</li><li>Педикюр с гель-лаком (только пальцы)</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/unas.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Наращивание ногтей">
+                 <h3 class="svc-title">Наращивание ногтей</h3>
+                 <div class="svc-price">от 5 €</div>
+                 <ul class="svc-list"><li>Наращивание ногтя (поштучно, по необходимости)</li><li>Точечный ремонт</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/retirada.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Снятие / коррекция">
+                 <h3 class="svc-title">Снятие / коррекция</h3>
+                 <div class="svc-price">от 20 €</div>
+                 <ul class="svc-list"><li>Снятие геля</li><li>Снятие гель-лака</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/lifting.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Лифтинг и омоложение">
+                 <h3 class="svc-title">Лифтинг и омоложение</h3>
+                 <div class="svc-price">от 85 €</div>
+                 <ul class="svc-list"><li>Микронидлинг (Dermapen)</li><li>Микротоковая терапия</li><li>Карбокситерапия</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/hidratacion.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Увлажнение и сияние">
+                 <h3 class="svc-title">Увлажнение и сияние</h3>
+                 <div class="svc-price">от 65 €</div>
+                 <ul class="svc-list"><li>Безынъекционная мезотерапия</li><li>Индивидуальные программы ухода за лицом</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/limpieza.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Очищение и баланс">
+                 <h3 class="svc-title">Очищение и баланс</h3>
+                 <div class="svc-price">от 55 €</div>
+                 <ul class="svc-list"><li>Hydrofacial</li><li>Комбинированная чистка лица</li><li>Ультразвуковой пилинг</li></ul>
+               </article>
+               <article class="svc-card">
+                 <img class="svc-img" src="/img/laser.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Обновление кожи">
+                 <h3 class="svc-title">Обновление кожи</h3>
+                 <div class="svc-price">от 80 €</div>
+                 <ul class="svc-list"><li>Химические пилинги</li><li>Энзимные пилинги</li><li>Glow-пилинги</li><li>Микроэксфолиация</li></ul>
+               </article>
+             </div>
+           </div>
+           <button class="svc-arrow svc-arrow--right" type="button" aria-label="Следующая услуга">
+             ›
+           </button>
+         </div>
+    </section>
+
+    <!-- Quality banner -->
+    <section class="banner">
+      <p>Мы используем только<br>высококачественные<br>ингредиенты и самые<br>экологичные материалы</p>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+      <h2 class="visually-hidden">Отзывы клиентов</h2>
+      <div class="bubbles">
+        <div class="bubble bubble--left">
+          Мне очень понравились<br>услуги.<br>Обязательно приду ещё!
+          <div class="bubble-name">Carmen</div>
+        </div>
+        <div class="bubble bubble--right">
+          Никогда не было<br>такого тщательного маникюра!<br>Спасибо!
+          <div class="bubble-name">Kate</div>
+        </div>
+        <div class="bubble bubble--left">
+          Не знаю как, но в этом салоне<br>все настоящие<br>профессионалы.
+          <div class="bubble-name">Jennifer</div>
+        </div>
+        <div class="bubble bubble--right">
+          Я клиентка уже 3 года<br>и не хочу<br>другой салон!
+          <div class="bubble-name">Maria</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map" id="map">
+       <div class="map-embed">
+       <iframe
+      title="Карта: VA Beauty Studio"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.101862028357!2d2.6216076761161955!3d39.57985460614876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12979375f26118b7%3A0x1ad0d6589ff5f305!2sVA%20BEAUTY%20STUDIO!5e0!3m2!1sru!2ses!4v1769440217420!5m2!1sru!2ses"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
+       </div>
+    </section>
+
+    <!-- Contact strip -->
+    <section class="contact-strip" id="contact">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <h2 class="contact-title"> <img class="pin-ic" src="/img/pin.png" width="18" height="18" loading="lazy" alt="" aria-hidden="true">VA Beauty Studio
+          </h2>
+          <div class="contact-text">
+            Carrer Albó 2, local 3, <br>
+            Ponent, 07013 Palma, <br>
+            Illes Balears<br>
+            <a class="contact-phone" href="tel:+34684301949">+34 684 301 949</a><br>
+            Пн–Сб: 10:00 – 19:00<br>Воскресенье: выходной
+          </div>
+        </div>
+
+        <div class="contact-right">
+           <a class="social" href="https://www.instagram.com/va_beauty_studio__/" target="_blank" rel="noopener" aria-label="Instagram">
+           <img class="social-img" src="/img/instagram.png" width="300" height="300" loading="lazy" alt="Instagram">
+           </a>
+
+           <a class="social" href="https://wa.me/34684301949" target="_blank" rel="noopener" aria-label="WhatsApp">
+           <img class="social-img" src="/img/whatsapp.png" width="300" height="300" loading="lazy" alt="WhatsApp">
+           </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom sticky CTAs -->
+  <div class="bottom-bar">
+    <button class="bottom-btn bottom-btn--light" type="button" data-open-modal>ЗАПИСАТЬСЯ</button>
+    <a class="bottom-btn bottom-btn--accent" href="tel:+34684301949">ПОЗВОНИТЬ</a>
+  </div>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal" id="contactModal" aria-hidden="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-close-modal>✕</button>
+
+      <div class="modal__top">
+        <div class="modal__h2" id="modalTitle">ФОРМА ЗАПИСИ</div>
+      </div>
+
+      <form class="modal__form" id="bookingForm"
+      action="https://formsubmit.co/valeriiadobryn@gmail.com"
+      method="POST"
+      data-msg-sending="Отправляем…"
+      data-msg-ok="✅ Спасибо! Мы получили ваш запрос и подтвердим запись по телефону или в WhatsApp."
+      data-msg-error="❌ Не удалось отправить. Позвоните или напишите нам в WhatsApp: +34 684 301 949"
+      data-msg-network="❌ Ошибка соединения. Позвоните или напишите нам в WhatsApp: +34 684 301 949">
+
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="Nueva cita — VA Beauty Studio (RU)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <!-- Fallback page when JavaScript is off -->
+        <input type="hidden" name="_next" value="https://vabeauty.studio/ru/gracias.html">
+        <!-- Language of the client, so the salon knows how to reply -->
+        <input type="hidden" name="idioma" value="Ruso">
+        <!-- Anti-spam honeypot: hidden from people, bots fill it and get ignored -->
+        <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="mfield">
+          <span class="mfield__label">Выберите процедуру</span>
+          <div class="mselect mselect--gold">
+            <span class="mplaceholder" data-placeholder>ВЫБЕРИТЕ УСЛУГУ</span>
+            <select required name="service">
+              <option value="" selected disabled>ВЫБЕРИТЕ УСЛУГУ</option>
+              <option value="Manicura">Маникюр</option>
+              <option value="Pedicura">Педикюр</option>
+              <option value="Extensión de Uñas">Наращивание ногтей</option>
+              <option value="Retirada / Corrección">Снятие / коррекция</option>
+              <option value="Lifting & Rejuvenecimiento">Лифтинг и омоложение</option>
+              <option value="Hidratación & Glow">Увлажнение и сияние</option>
+              <option value="Limpieza & Equilibrio">Очищение и баланс</option>
+              <option value="Renovación de la piel">Обновление кожи</option>
+            </select>
+          </div>
+        </label>
+
+        <label class="mfield">
+          <span class="mfield__label">Выберите дату</span>
+          <div class="mdate">
+            <span class="mplaceholder" data-date-placeholder>ВЫБЕРИТЕ ДАТУ</span>
+            <input class="minput" id="dateField" type="date" name="date" required />
+          </div>
+        </label>
+
+        <p class="mwarning" id="dateWarning" hidden>Воскресенье: выходной</p>
+
+        <label class="mfield">
+          <span class="mfield__label">Выберите время</span>
+          <div class="mselect mselect--gold">
+            <span class="mplaceholder" data-placeholder>ВЫБЕРИТЕ ВРЕМЯ</span>
+            <select required name="time">
+              <option value="" selected disabled>ВЫБЕРИТЕ ВРЕМЯ</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+        </label>
+
+        <label class="mfield">
+          <span class="mfield__label">Ваше имя и фамилия</span>
+          <input class="minput" type="text" name="name" autocomplete="name" required />
+        </label>
+
+        <label class="mfield">
+          <span class="mfield__label">Контактный телефон</span>
+          <input class="minput" type="tel" name="phone" autocomplete="tel" required />
+        </label>
+
+        <label class="mfield">
+          <span class="mfield__label">Ваше сообщение</span>
+          <textarea class="minput minput--ta" rows="4" name="message"></textarea>
+        </label>
+         <button class="msubmit" type="submit">ОТПРАВИТЬ ЗАПРОС НА ЗАПИСЬ</button>
+        <p class="mstatus" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/hero.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/reviews.js"></script>
+</body>
+</html>
