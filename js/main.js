@@ -80,20 +80,34 @@
 
     const submitBtn = form.querySelector('button[type="submit"]');
 
+    // Ignore extra clicks while a request is already being sent
+    if (form.dataset.sending === "1") return;
+    form.dataset.sending = "1";
+
+    let sent = false;
+
     try {
       if (submitBtn) submitBtn.disabled = true;
       if (status) status.textContent = "Enviando…";
 
       const fd = new FormData(form);
 
-      const res = await fetch(form.action, {
+      // FormSubmit's AJAX endpoint answers with JSON instead of redirecting.
+      // Posting to the normal endpoint made fetch fail after the email was
+      // already sent, so clients saw an error and submitted again.
+      const ajaxUrl = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+      const res = await fetch(ajaxUrl, {
         method: "POST",
         body: fd,
         headers: { "Accept": "application/json" }
       });
 
-      if (res.ok) {
-        if (status) status.textContent = "✅ Gracias! Hemos recibido tu solicitud.";
+      const data = await res.json().catch(() => ({}));
+      sent = res.ok && String(data.success) !== "false";
+
+      if (sent) {
+        if (status) status.textContent = "✅ ¡Gracias! Hemos recibido tu solicitud. Te confirmaremos la cita por teléfono o WhatsApp.";
         form.reset();
 
         // обновим плейсхолдеры/оверлеи, если нужно
@@ -110,18 +124,23 @@
           if (dateInput && datePh) datePh.classList.toggle("is-hidden", !!dateInput.value);
         }
 
-        // закрыть модалку через небольшую паузу
+        // Close the modal after a pause; keep the button locked until then
         setTimeout(() => {
           if (typeof closeModal === "function") closeModal();
           if (status) status.textContent = "";
-        }, 1400);
+          if (submitBtn) submitBtn.disabled = false;
+          form.dataset.sending = "";
+        }, 2500);
       } else {
-        if (status) status.textContent = "❌ Error al enviar. Inténtalo de nuevo.";
+        if (status) status.textContent = "❌ Error al enviar. Llámanos o escríbenos por WhatsApp: +34 684 301 949";
       }
     } catch (err) {
-      if (status) status.textContent = "❌ Error de conexión. Inténtalo de nuevo.";
+      if (status) status.textContent = "❌ Error de conexión. Llámanos o escríbenos por WhatsApp: +34 684 301 949";
     } finally {
-      if (submitBtn) submitBtn.disabled = false;
+      if (!sent) {
+        if (submitBtn) submitBtn.disabled = false;
+        form.dataset.sending = "";
+      }
     }
   });
 
