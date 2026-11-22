@@ -51,6 +51,22 @@
       "closes": "18:00"
     }],
     "sameAs": ["https://www.instagram.com/va_beauty_studio__/"],
+    "areaServed": { "@type": "City", "name": "Palma de Mallorca" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "VA Beauty Studio",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manicura" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 30, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pedicura" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 50, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pedicura técnica" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 25, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Extensión de uñas" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 5, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retirada y corrección" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 20, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lifting y rejuvenecimiento" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 85, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hidratación y glow" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 65, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza facial e Hydrofacial" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 55, "priceCurrency": "EUR" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Renovación de la piel (peelings)" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "EUR" } }
+      ]
+    },
     "availableLanguage": ["uk", "es", "en", "de", "ru"]
   }
   </script>
@@ -205,6 +221,12 @@
              ›
            </button>
          </div>
+    </section>
+
+    <!-- About the salon (local SEO text) -->
+    <section class="about" id="about">
+      <h2 class="about-title">{{about_title}}</h2>
+      <p>{{about_text}}</p>
     </section>
 
     <!-- Instagram gallery: latest posts from @va_beauty_studio__ (feed via Behold) -->
