@@ -1220,3 +1220,48 @@ h2.contact-title{ margin:0 0 6px; line-height:1.3; }
   .hero2-btn{ font-size:16px; padding:16px 14px; }
   .hero2-badges li{ font-size:14px; }
 }
+
+/* ===== "Book this" on service cards ===== */
+.svc-card{ display:flex; flex-direction:column; }
+.svc-price{ font-size:17px; color:#8a5a12; }
+.svc-book{
+  margin:10px 0 2px;
+  width:100%;
+  padding:11px 8px;
+  border:0;
+  border-radius:10px;
+  background:var(--black);
+  color:var(--gold-2);
+  font-family:var(--font);
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.04em;
+  cursor:pointer;
+  margin-top:auto;
+}
+.svc-card .svc-list{ margin-bottom:10px; }
+
+/* ===== Why VA ===== */
+.why{ padding:22px 14px 10px; }
+.why-title{ margin:0 0 14px; text-align:center; font-size:22px; font-weight:800; line-height:1.25; }
+.why-grid{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.why-grid li{
+  background:#faf6ee;
+  border:1px solid rgba(214,162,74,.35);
+  border-radius:14px;
+  padding:12px 10px;
+  text-align:center;
+}
+.why-icon{ font-size:26px; line-height:1; display:block; margin-bottom:6px; }
+.why-grid b{ display:block; font-size:15px; margin-bottom:4px; }
+.why-grid span.t{ display:block; font-size:13px; line-height:1.4; color:#4a4237; }
+@media (min-width: 900px){
+  .why{ padding:34px 24px 14px; }
+  .why-grid{ grid-template-columns:repeat(4, 1fr); gap:14px; }
+  .why-grid li{ padding:18px 14px; }
+}
+/* keep card photos square inside the flex card */
+.svc-card .svc-img{ height:auto; flex:none; aspect-ratio:1 / 1; }
+/* Book button sits right under the price (before the list), no big gap */
+.svc-card .svc-book{ order:2; margin:8px 0 10px; }
+.svc-card .svc-list{ order:3; }

@@ -345,3 +345,17 @@
     box.appendChild(f);
   });
 })();
+
+// ===== "Book this" buttons on service cards: open the form with that service chosen =====
+(() => {
+  const form = document.getElementById("bookingForm");
+  if (!form) return;
+  document.querySelectorAll("[data-service]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const sel = form.querySelector('select[name="service"]');
+      if (!sel) return;
+      sel.value = btn.dataset.service;
+      sel.dispatchEvent(new Event("change"));
+    });
+  });
+})();
