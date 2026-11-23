@@ -1,0 +1,14 @@
+{
+  "svc1_price": "from €35",
+  "svc1_list": "<li>Without polish — women €35 / men €40</li><li>Regular polish — clear €40 / colour €45</li><li>Gel polish — €60</li><li>Gel strengthening S / M / L — €65 / €70 / €75</li>",
+  "svc2_price": "from €55",
+  "svc2_list": "<li>Without polish — women €55 / men €65</li><li>Regular polish — €60</li><li>Gel polish — €65</li>",
+  "svc3_price": "from €70",
+  "svc3_list": "<li>S (0–1) — €70</li><li>M (2–3) — €75</li><li>L (4) — €80</li>",
+  "svc4_price": "from €10",
+  "svc4_list": "<li>Nail shape restoration — from €10 (depending on length)</li><li>Gel removal</li><li>Gel polish removal</li>",
+  "svc10_title": "Additional services",
+  "svc10_price": "from €5",
+  "svc10_list": "<li>French tips — €10</li><li>Chrome powder / stamping — €5</li><li>Simple hand-painted nail art — €10</li><li>Detailed hand-painted nail art — €15</li><li>Spa treatment (scrub + nourishing massage candle or spa gloves with cream) — €15</li><li>Paraffin treatment — €10</li>",
+  "faq_a5": "Manicure from €35, pedicure from €55, nail extensions from €70, additional services from €5 and facial treatments from €55. The exact price depends on the treatment."
+}

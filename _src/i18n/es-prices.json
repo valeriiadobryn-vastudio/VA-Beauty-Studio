@@ -1,0 +1,14 @@
+{
+  "svc1_price": "a partir de 35 €",
+  "svc1_list": "<li>Sin esmaltado — mujer 35 € / hombre 40 €</li><li>Esmalte tradicional — transparente 40 € / color 45 €</li><li>Esmalte semipermanente — 60 €</li><li>Refuerzo de gel S / M / L — 65 / 70 / 75 €</li>",
+  "svc2_price": "a partir de 55 €",
+  "svc2_list": "<li>Sin esmaltado — mujer 55 € / hombre 65 €</li><li>Esmalte tradicional — 60 €</li><li>Esmalte semipermanente — 65 €</li>",
+  "svc3_price": "a partir de 70 €",
+  "svc3_list": "<li>S (0–1) — 70 €</li><li>M (2–3) — 75 €</li><li>L (4) — 80 €</li>",
+  "svc4_price": "a partir de 10 €",
+  "svc4_list": "<li>Restauración de la forma — desde 10 € (según la longitud)</li><li>Retirar gel</li><li>Retirar esmalte semipermanente</li>",
+  "svc10_title": "Servicios adicionales",
+  "svc10_price": "a partir de 5 €",
+  "svc10_list": "<li>Francesa — 10 €</li><li>Efecto perlado / stamping — 5 €</li><li>Diseño sencillo a mano — 10 €</li><li>Diseño elaborado a mano — 15 €</li><li>Tratamiento spa (exfoliante + vela nutritiva o guantes de spa con crema) — 15 €</li><li>Parafina — 10 €</li>",
+  "faq_a5": "Manicura desde 35 €, pedicura desde 55 €, extensiones de uñas desde 70 €, servicios adicionales desde 5 € y tratamientos faciales desde 55 €. El precio exacto depende del tratamiento."
+}
