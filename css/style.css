@@ -1265,3 +1265,14 @@ h2.contact-title{ margin:0 0 6px; line-height:1.3; }
 /* Book button sits right under the price (before the list), no big gap */
 .svc-card .svc-book{ order:2; margin:8px 0 10px; }
 .svc-card .svc-list{ order:3; }
+
+/* About: compact - one line + "Read more" */
+.about{ padding:14px 16px 6px; }
+.about-title{ font-size:18px; margin:0 0 4px; }
+.about-lead{ margin:0 auto 4px; font-size:14px; line-height:1.45; color:#4a4237; max-width:560px; }
+.about-more{ max-width:640px; margin:0 auto; }
+.about-more summary{ cursor:pointer; font-size:13px; font-weight:700; color:#8a5a12; list-style:none; }
+.about-more summary::-webkit-details-marker{ display:none; }
+.about-more summary::after{ content:" ▾"; }
+.about-more[open] summary::after{ content:" ▴"; }
+.about-more p{ margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#4a4237; text-align:left; }
